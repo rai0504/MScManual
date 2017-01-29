@@ -1,0 +1,171 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (05/01/2015)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author: Adriano Palombo
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+a4paper, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrartcl}
+
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{\normalfont\spacedallcaps{Fascicolo}} % The article title
+
+\author{\spacedlowsmallcaps{ver\_2\textsuperscript{1}}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+%\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title/author/date block
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+
+\listoffigures % Print the list of figures
+
+%\listoftables % Print the list of tables
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR AFFILIATIONS
+%----------------------------------------------------------------------------------------
+
+{\let\thefootnote\relax\footnotetext{* \textit{SireSLA, Lombardia Informatica, Milano, Italia}}}
+
+%{\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Department of Chemistry, University of Examples, London, United Kingdom}}}
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Prerequisiti - in locale}
+
+\begin{enumerate}
+\item Scaricare XAMPP da \url{https://www.apachefriends.org/it/index.html} e seguire la procedura standard di installazione di un qualsiasi programma per windows.
+\item Lanciare l’eseguibile di XAMPP “xampp-control.exe” che si trova in C:$\setminus$xampp
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{xampp}
+\caption{configurazione XAMPP}
+\end{figure}
+\item Qualora non fosse aperta la porta 80 cliccare su Config (di Apache) e aprire il file di “testo” httpd.conf e configurare la porta 80 come segue:
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{httpd_conf80}
+\caption{configurazione httpd.conf}
+\end{figure}
+\item aprire il file di “testo” php.ini e configurare e de commentare la riga 1008 come segue:
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{1008}
+\caption{configurazione php.ini}
+\end{figure}
+\item aprire il file di “testo” php.ini e settare il timeout di risposta a 60 sec come segue:
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{60sec}
+\caption{configurazione php.ini}
+\end{figure}
+\item (chiudere XAMPP e riavviarlo)
+\item Copiare la cartella ”Fascicolo” che al momento è sotto la cartella condivisa:\\
+C:$\setminus$..$\setminus$A605 - Monitoraggio SLA e Esercizio all'interno di C:$\setminus$xampp$\setminus$htdocs
+\end{enumerate}
+
+\section{Creazione dei fascicoli}
+\begin{enumerate}
+\item Lanciare XAMPP (doppio click su XAMPP “xampp-control.exe” che si trova in C:$\setminus$xampp)
+\item Aprire il browser e digitare il seguente path:
+\begin{itemize}
+\item \url{http://localhost/fascicolo/allSCH_FAS.php} (è un’operazione che richiede circa 3 min)
+\begin{itemize}
+\item Se l’operazione è andata a buon fine visualizzerete la scritta FINITO
+\begin{itemize}
+\item Altrimenti fare un refresh della pagina
+\end{itemize}
+\end{itemize}
+In questo modo sarà creata la prima pagina del fascicolo per tutti gli “SCH” e copiate nella cartella: C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$allFAS
+\end{itemize}
+\item Aprire il browser e digitare il seguente path:
+\begin{itemize}
+\item \url{http://localhost/fascicolo/allINC_FAS.php}
+\begin{itemize}
+\item Se l’operazione è andata a buon fine visualizzerete la scritta FINITO
+\end{itemize}
+In questo modo sarà creata la prima pagina del fascicolo per tutti gli “INC” e copiate nella cartella: C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$allFAS
+\end{itemize}
+\item Aprire il browser e digitare il seguente path:
+\begin{itemize}
+\item \url{http://localhost/fascicolo/PDFMerger/mergeAllFascicoli.php} (è un’operazione che richiede circa 5 min)
+\begin{itemize}
+\item Se l’operazione è andata a buon fine visualizzerete la scritta FINITO
+\begin{itemize}
+\item Altrimenti fare un refresh della pagina
+\end{itemize}
+\end{itemize}
+In questo modo sarà associata la prima pagina “SCH” o “INC” precedentemente realizzata con gli altri due file pdf di interesse,  in modo da avere il fascicolo completo.
+I fascicoli realizzati saranno copiati nella cartella: C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$FASCICOLI divisi per FSM$\Rightarrow$SM$\Rightarrow$Fascicolo-SCH-XXX\_XX.pdf
+\end{itemize}
+\item In ultimo Copiare la cartella C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$FASCICOLI nella cartella condivisa:
+C:$\setminus$..$\setminus$A605 - Monitoraggio SLA e Esercizio all'interno di:\\
+$\setminus$$\setminus$mega-srv-prod$\setminus$RepositoryFunzione$\setminus$A605 - Monitoraggio SLA e Eser\\cizio$\setminus$FASCICOLO\_STORICO$\setminus$FASCICOLO\_MESE\_ANNO
+
+
+\end{enumerate}
+
+\begin{figure}[h]
+\centering\includegraphics[scale=0.85]{fascicolo}
+\caption{esempio fascicolo}
+\end{figure}
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+%\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+%\bibliographystyle{unsrt}
+
+%\bibliography{sample.bib} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
