@@ -1,0 +1,5 @@
+\select@language {UKenglish}
+\contentsline {section}{\numberline {1}Parameter Estimation for Chan-Vese Segmentation for Fluorescence Microscopy GUI}{3}{section.1}
+\contentsline {section}{\numberline {2}Parameter Estimation for Chan-Vese Segmentation for Fluorescence Microscopy CLI}{8}{section.2}
+\contentsline {section}{\numberline {3}Interactive Segmentation CLI}{12}{section.3}
+\contentsline {section}{\numberline {4}Preprocessing Scheme}{16}{section.4}

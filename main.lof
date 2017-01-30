@@ -1,0 +1,32 @@
+\deactivateaddvspace 
+\select@language {UKenglish}
+\contentsline {figure}{\numberline {1}{\ignorespaces On startup.\relax }}{3}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Image explorer to load an image.\relax }}{3}{figure.caption.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Sucessfully loaded image.\relax }}{4}{figure.caption.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Image explorer to load a ground truth image.\relax }}{4}{figure.caption.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Sucessfully loaded image.\relax }}{5}{figure.caption.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces All list parameters exposed.\relax }}{6}{figure.caption.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Initial segmentation summary.\relax }}{6}{figure.caption.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Final segmentation results.\relax }}{7}{figure.caption.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Load image.\relax }}{8}{figure.caption.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Set initialisation method.\relax }}{8}{figure.caption.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Set mask dilation size.\relax }}{9}{figure.caption.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Set parameter estimation method.\relax }}{9}{figure.caption.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Set final segmentation output style.\relax }}{10}{figure.caption.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Segmentation initialised.\relax }}{10}{figure.caption.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Segmentation output.\relax }}{11}{figure.caption.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Load in an image.\relax }}{12}{figure.caption.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Load in an iamge.\relax }}{12}{figure.caption.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Load in a seed.\relax }}{13}{figure.caption.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Mark object.\relax }}{13}{figure.caption.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Background object.\relax }}{14}{figure.caption.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Save seed.\relax }}{14}{figure.caption.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Start segmentation.\relax }}{15}{figure.caption.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Segmentation complete.\relax }}{15}{figure.caption.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Load in an image.\relax }}{16}{figure.caption.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Set gamma.\relax }}{16}{figure.caption.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces TV denoisong on each channel.\relax }}{17}{figure.caption.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces Background object.\relax }}{17}{figure.caption.27}
+\contentsline {figure}{\numberline {28}{\ignorespaces Remap function parameters.\relax }}{18}{figure.caption.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces CEDORI parameters.\relax }}{18}{figure.caption.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Image enhancement complete.\relax }}{19}{figure.caption.30}

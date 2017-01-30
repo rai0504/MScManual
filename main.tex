@@ -16,7 +16,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
-10pt, % Main document font size
+11pt, % Main document font size
 a4paper, % Paper type, use 'letterpaper' for US Letter paper
 oneside, % One page layout (no page indentation)
 %twoside, % Two page layout (page indentation for binding and different headers)
@@ -32,11 +32,11 @@ BCOR5mm, % Binding correction
 %	TITLE AND AUTHOR(S)
 %----------------------------------------------------------------------------------------
 
-\title{\normalfont\spacedallcaps{Fascicolo}} % The article title
+\title{\normalfont\spacedallcaps{User Manual}} % The article title
 
-\author{\spacedlowsmallcaps{ver\_2\textsuperscript{1}}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+\author{\spacedlowsmallcaps{Ryan Naidoo}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
 
-%\date{} % An optional date to appear under the author(s)
+\date{} % An optional date to appear under the author(s)
 
 %----------------------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ BCOR5mm, % Binding correction
 %	AUTHOR AFFILIATIONS
 %----------------------------------------------------------------------------------------
 
-{\let\thefootnote\relax\footnotetext{* \textit{SireSLA, Lombardia Informatica, Milano, Italia}}}
+%{\let\thefootnote\relax\footnotetext{* \textit{SireSLA, Lombardia Informatica, Milano, Italia}}}
 
 %{\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Department of Chemistry, University of Examples, London, United Kingdom}}}
 
@@ -82,80 +82,290 @@ BCOR5mm, % Binding correction
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
-\section{Prerequisiti - in locale}
+\section{Parameter Estimation for Chan-Vese Segmentation for Fluorescence Microscopy GUI}
 
 \begin{enumerate}
-\item Scaricare XAMPP da \url{https://www.apachefriends.org/it/index.html} e seguire la procedura standard di installazione di un qualsiasi programma per windows.
-\item Lanciare l’eseguibile di XAMPP “xampp-control.exe” che si trova in C:$\setminus$xampp
+\item When the application is executed, the interface will like the figure below
 \begin{figure}[h]
-\centering\includegraphics[scale=0.5]{xampp}
-\caption{configurazione XAMPP}
+\centering\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/OnStartup_raw}
+\caption{On startup.}
 \end{figure}
-\item Qualora non fosse aperta la porta 80 cliccare su Config (di Apache) e aprire il file di “testo” httpd.conf e configurare la porta 80 come segue:
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{httpd_conf80}
-\caption{configurazione httpd.conf}
-\end{figure}
-\item aprire il file di “testo” php.ini e configurare e de commentare la riga 1008 come segue:
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{1008}
-\caption{configurazione php.ini}
-\end{figure}
-\item aprire il file di “testo” php.ini e settare il timeout di risposta a 60 sec come segue:
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{60sec}
-\caption{configurazione php.ini}
-\end{figure}
-\item (chiudere XAMPP e riavviarlo)
-\item Copiare la cartella ”Fascicolo” che al momento è sotto la cartella condivisa:\\
-C:$\setminus$..$\setminus$A605 - Monitoraggio SLA e Esercizio all'interno di C:$\setminus$xampp$\setminus$htdocs
-\end{enumerate}
 
-\section{Creazione dei fascicoli}
+\item
+Load in an image by clicking on the button labelled "Image" an image explorer dialogue will open as shown in the figure below. Then navigate to the desired image.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/OnImageNavigation}
+	\caption{Image explorer to load an image.}
+\end{figure}
+
+\item 
+When an image has been succesfully loaded it will appear in its designate slot as shown in the figure below.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/afterImageNavigation}
+\caption{Sucessfully loaded image.}
+\end{figure}
+
+%\newpage
+\item 
+\textit{Optional} Load a ground truth image by clicking on the button labelled "Ground Truth", an image explorer dialogue will open as shown in the figure below. Then navigate to the desired image.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/OnGTNavigation}
+	\caption{Image explorer to load a ground truth image.}
+\end{figure}
+
+\item
+When a ground truth image has been succesfully loaded it will appear in its designate slot as shown in the figure below.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/afterImageNavigation}
+	\caption{Sucessfully loaded image.}
+\end{figure}
+\newpage
+\item Set the segmentation parameters. All list parameters are shown in the figure below.
 \begin{enumerate}
-\item Lanciare XAMPP (doppio click su XAMPP “xampp-control.exe” che si trova in C:$\setminus$xampp)
-\item Aprire il browser e digitare il seguente path:
-\begin{itemize}
-\item \url{http://localhost/fascicolo/allSCH_FAS.php} (è un’operazione che richiede circa 3 min)
-\begin{itemize}
-\item Se l’operazione è andata a buon fine visualizzerete la scritta FINITO
-\begin{itemize}
-\item Altrimenti fare un refresh della pagina
-\end{itemize}
-\end{itemize}
-In questo modo sarà creata la prima pagina del fascicolo per tutti gli “SCH” e copiate nella cartella: C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$allFAS
-\end{itemize}
-\item Aprire il browser e digitare il seguente path:
-\begin{itemize}
-\item \url{http://localhost/fascicolo/allINC_FAS.php}
-\begin{itemize}
-\item Se l’operazione è andata a buon fine visualizzerete la scritta FINITO
-\end{itemize}
-In questo modo sarà creata la prima pagina del fascicolo per tutti gli “INC” e copiate nella cartella: C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$allFAS
-\end{itemize}
-\item Aprire il browser e digitare il seguente path:
-\begin{itemize}
-\item \url{http://localhost/fascicolo/PDFMerger/mergeAllFascicoli.php} (è un’operazione che richiede circa 5 min)
-\begin{itemize}
-\item Se l’operazione è andata a buon fine visualizzerete la scritta FINITO
-\begin{itemize}
-\item Altrimenti fare un refresh della pagina
-\end{itemize}
-\end{itemize}
-In questo modo sarà associata la prima pagina “SCH” o “INC” precedentemente realizzata con gli altri due file pdf di interesse,  in modo da avere il fascicolo completo.
-I fascicoli realizzati saranno copiati nella cartella: C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$FASCICOLI divisi per FSM$\Rightarrow$SM$\Rightarrow$Fascicolo-SCH-XXX\_XX.pdf
-\end{itemize}
-\item In ultimo Copiare la cartella C:$\setminus$xampp$\setminus$htdocs$\setminus$Fascicolo$\setminus$FASCICOLI nella cartella condivisa:
-C:$\setminus$..$\setminus$A605 - Monitoraggio SLA e Esercizio all'interno di:\\
-$\setminus$$\setminus$mega-srv-prod$\setminus$RepositoryFunzione$\setminus$A605 - Monitoraggio SLA e Eser\\cizio$\setminus$FASCICOLO\_STORICO$\setminus$FASCICOLO\_MESE\_ANNO
+	\item[$\bullet$]
+	\textit{Neighbourhood Density} is the connectivity density of the graph to be built. The only options are 4-connected and 8-connected (default).
+	
+	\item[$\bullet$]
+	\textit{Method} determines the type of parameter estimation method to use. The options are the parameter settings by El-Zehiry \textit{et. al} and Masaka \textit{et. al}, the proposed parameter estimation method (default) and manual tuning to allow for user-defined parameter settings.
+	
+	\item[$\bullet$]
+	\textit{Initialisation} is the initial curve/mask which is iteratively deformed until convergence. The options are a centred circle, and curves/masks generated by Otsu binarizartion, K-means clustering ($k=2$) and EMGMM (Expectation Maximisation Gaussian Mixture Modelling with k=2) (default).
+	
+	\item[$\bullet$]
+	\textit{Element} is the dilation element to be used on the initial curve/mask. The options are Rectangle, Cross, and Ellipse.
+	
+	\item[$\bullet$]
+	\textit{Size} denotes the size of the dilation element in pixels. By default, no dilation is applied.
+	
+	\item[$\bullet$]
+	\textit{Energy function parameters, $\mu$, $\lambda_0$ and $\lambda_1$}, are automatically calculated and shown in the designated text boxes. If "Manual" method is chosen then these can be edited by the user.
+	
+	\item[$\bullet$]
+	\textit{Simulation Settings} cover the extra settings for segmentation. The convergence criterion is shown as $\epsilon$ which is set to $0.001$ by default, and the maximum number of iterations is shown as $n_{max}$ which is set to $30$ by default.
+\end{enumerate}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/all_parameters}
+	\caption{All list parameters exposed.}
+\end{figure}
+\newpage
+\item
+Click the "Segment" button to start segmenting with the chosen parameters. A summary will appear on the segmentation results box as shown in the figure below.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/OnSegmentationStart}
+\caption{Initial segmentation summary.}
+\end{figure}
 
-
+\item
+When the segmentation is complete, the segmentation image result will appear in its designated slot and the binary classification statistics, if a ground truth image is available, will be shown in the segmentation results box as shown in the figure below.
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.90\columnwidth]{CVParamsEstimationGUI/OnSegmentationComplete}
+\caption{Final segmentation results.}
+\end{figure}
 \end{enumerate}
 
+\textit{Note}\\
+\textit{The GUI version is buggy and impacts the segmentation process which sometimes produces inaccurate results.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Parameter Estimation for Chan-Vese Segmentation for Fluorescence Microscopy CLI}
+\begin{enumerate}
+\item Load in an image by giving the direct path.
 \begin{figure}[h]
-\centering\includegraphics[scale=0.85]{fascicolo}
-\caption{esempio fascicolo}
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/1}
+	\caption{Load image.}
 \end{figure}
+
+\item The initial mask/curve to deform is set by typing in on of the following: \textsf{default, otsu, kmeans, emgmm}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/2}
+	\caption{Set initialisation method.}
+\end{figure}
+
+\item Set the dilation size. Enter a number between $0$(no dilation)-$10$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/3}
+	\caption{Set mask dilation size.}
+\end{figure}
+
+\newpage
+\item Set the parameter estimation method by typing in one of the following: \textsf{proposed, el-zehiry, masaka}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/4}
+	\caption{Set parameter estimation method.}
+\end{figure}
+
+\item Set the output type. The options are \textsf{mask} or \textsf{contour}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/5}
+	\caption{Set final segmentation output style.}
+\end{figure}
+
+\newpage
+\item If the parameters are correct then the segmentation will start successfully as shown in the figure below.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/6}
+	\caption{Segmentation initialised.}
+\end{figure}
+
+\item When the segmentation is complete, the results will appear in its own window as shown in the figure below.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{CVParamsEstimationCLI/7}
+	\caption{Segmentation output.}
+\end{figure}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Interactive Segmentation CLI}
+\begin{enumerate}
+\item Load in an image by giving the direct path as shown in the figure below.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.9\columnwidth]{Interactive/1}
+		\caption{Load in an image.}
+	\end{figure}
+
+\item Load in a seed by giving the direct path or type "x" for no seed as shown in the figure below.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{Interactive/2}
+	\caption{Load in an iamge.}
+\end{figure}
+
+\item Type "y" to enable or "n" to disable real time probability distribution update as shown in the figure below.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{Interactive/3}
+	\caption{Load in a seed.}
+\end{figure}
+
+\newpage
+\item Mark object seed by left-click and dragging over the object.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\columnwidth]{Interactive/4_1}
+	\caption{Mark object.}
+\end{figure}
+
+\item Mark background seed by right-click and dragging over the object.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.50\columnwidth]{Interactive/4_2}
+	\caption{Background object.}
+\end{figure}
+
+\newpage
+\item \textit{Optional}. To save the seed, press "m" or "M".
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{Interactive/5}
+	\caption{Save seed.}
+\end{figure}
+
+\item Start segmentation by typing "s" or "S" and enter.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.90\columnwidth]{Interactive/6}
+	\caption{Start segmentation.}
+\end{figure}
+
+\newpage
+\item When the segmentation is complete the result will appear in the imge window as shown in the figure below. The final result can be save by pressing "c" or "C".
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\columnwidth]{Interactive/7}
+	\caption{Segmentation complete.}
+\end{figure}
+\end{enumerate}
+
+\textit{Note}\\
+\textit{Additional functionality such as increasing or decreasing brush size, erasing seeds, and resetting the program are shown in the menu.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Preprocessing Scheme}
+\begin{enumerate}
+	\item
+	Total variation denoising is performed separately in PreprocessingScheme$\setminus$main.m. This will prompt you to search for the desired image as shown in the figure below.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.9\columnwidth]{Preprocess/1}
+		\caption{Load in an image.}
+	\end{figure}
+	
+	\item The denoising effect by entering a value for gamma as shown in the figure below.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.90\columnwidth]{Preprocess/2}
+		\caption{Set gamma.}
+	\end{figure}
+	
+	\item Denoising is then performed on each channel in the image as shown below and combined into a single image. This image is save in the same directory as the input image and is named "tv.jpg".
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.90\columnwidth]{Preprocess/3}
+		\caption{TV denoisong on each channel.}
+	\end{figure}
+	
+	\newpage
+%	\item ccc.
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[width=0.50\columnwidth]{Preprocess/4}
+%		\caption{Mark object.}
+%	\end{figure}
+%	
+	\item The remainder of the preprocessing scheme is performed using\\ PreprocessingScheme$\setminus$FMPreprocessingScheme.exe. Enter the path where the total variation denoised image is as shown in the figure below.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.90\columnwidth]{Preprocess/5}
+		\caption{Background object.}
+	\end{figure}
+	
+	\item Set the parameters for the remapping function as shown in the figure below.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.90\columnwidth]{Preprocess/6}
+		\caption{Remap function parameters.}
+	\end{figure}
+	\newpage
+	\item Set the coherence enhancing diffusion parameter with optimised rotational invariance parameters as shown in the figure below.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.90\columnwidth]{Preprocess/7}
+		\caption{CEDORI parameters.}
+	\end{figure}
+	
+	\item The final image will appear in its own window.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=1\columnwidth]{Preprocess/8}
+		\caption{Image enhancement complete.}
+	\end{figure}
+\end{enumerate}
+
+
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
